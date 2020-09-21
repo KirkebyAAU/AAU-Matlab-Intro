@@ -1,0 +1,20 @@
+
+clear; clc; close all;
+
+x0 = 0; y0 = 10; % Initial position
+x1 = 10; y1 = 0; % Final position
+
+v1 = 7; v2 = 4; % velocity in m/s
+
+f1 = @(x) 0.5*x+2; % Sea line funktion
+
+d1 = @(x) sqrt(abs(x0-x).^2+abs(y0-f1(x)).^2);
+d2 = @(x) sqrt(abs(x-x1).^2+abs(f1(x)-y1).^2);
+
+T = @(x) v1*d1(x)+v2*d2(x);
+
+x_axis = 0:0.1:10;
+
+figure(1);
+plot(x_axis,T(x_axis));
+

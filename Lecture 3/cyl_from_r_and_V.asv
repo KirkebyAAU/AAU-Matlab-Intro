@@ -1,0 +1,8 @@
+function [h,S] = cyl_from_r_and_V(r,V)
+%Cylinder height and surface from radius and volume.
+%   Calculates the height and surface area of a cylinder with a set radius
+%   and volume. 
+h = V./(r.^2*pi);
+S = h*(2*pi.*r)+2*pi*r.^2; % Cylinder surface + ends
+end
+
